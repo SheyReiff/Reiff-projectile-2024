@@ -3,11 +3,12 @@ package reiff.projectile;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class projectiletest {
+public class ProjectileTest {
     @Test
     public void getX() {
         //given
-        Projectile projectile = new Projectile(31.00, 20.00, 2.70);
+        Projectile projectile = new Projectile(31.00, 20.00);
+        projectile.setSeconds(2.70);
 
         //when
         double actual = projectile.getX();
@@ -20,7 +21,8 @@ public class projectiletest {
     @Test
     public void getY() {
         //given
-        Projectile projectile = new Projectile(31.00, 20.00, 2.70);
+        Projectile projectile = new Projectile(31.00, 20.00);
+        projectile.setSeconds(2.70);
 
         //when
         double actual = projectile.getY();
@@ -33,7 +35,8 @@ public class projectiletest {
     @Test
     public void getApex() {
         //given
-        Projectile projectile = new Projectile(31.00, 20.00, 2.70);
+        Projectile projectile = new Projectile(31.00, 20.00);
+        projectile.setSeconds(2.70);
 
         //when
         double actual = projectile.getApex();

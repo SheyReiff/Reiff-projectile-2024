@@ -1,24 +1,20 @@
-package reiff.projectile;//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+package reiff.projectile;
 
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Projectile {
-
-    private double angle;
     private double radians;
     private double velocity;
     private double seconds;
-    private double apexTime;
 
-    public Projectile(double angle, double velocity, double seconds) {
-        this.angle = angle;
+    public Projectile(double angle, double velocity) {
         this.velocity = velocity;
-        this.seconds = seconds;
         this.radians = Math.toRadians(angle);
     }
-
+    public void setSeconds(double seconds) {
+        this.seconds = seconds;
+    }
     public double getX() {
         return cos(radians) * velocity * seconds;
     }
@@ -30,8 +26,8 @@ public class Projectile {
     //projectile at its highest
 
     public double getApex() {
-        double v = velocity * Math.sin(radians);
-        return v / 9.8;
+        return (velocity * Math.sin(radians))/ 9.8;
+
     }
 }
 
