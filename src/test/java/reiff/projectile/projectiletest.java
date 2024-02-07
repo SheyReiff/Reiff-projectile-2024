@@ -7,7 +7,7 @@ public class ProjectileTest {
     @Test
     public void getX() {
         //given
-        Projectile projectile = new Projectile(31.00, 20.00);
+        Projectile projectile = new Projectile(31.00, 65.00);
         projectile.setSeconds(2.70);
 
         //when
@@ -15,13 +15,13 @@ public class ProjectileTest {
 
         //then
 
-        Assertions.assertEquals(46.28, actual, 0.01);
+        Assertions.assertEquals(150.43, actual, 0.01);
     }
 
     @Test
     public void getY() {
         //given
-        Projectile projectile = new Projectile(31.00, 20.00);
+        Projectile projectile = new Projectile(31.00, 65.00);
         projectile.setSeconds(2.70);
 
         //when
@@ -29,13 +29,13 @@ public class ProjectileTest {
 
         //then
 
-        Assertions.assertEquals(-7.90, actual, 0.01);
+        Assertions.assertEquals(54.66, actual, 0.01);
     }
 
     @Test
     public void getApex() {
         //given
-        Projectile projectile = new Projectile(31.00, 20.00);
+        Projectile projectile = new Projectile(31.00, 65.00);
         projectile.setSeconds(2.70);
 
         //when
@@ -43,6 +43,19 @@ public class ProjectileTest {
 
         //then
 
-        Assertions.assertEquals(1.051098, actual, 0.01);
+        Assertions.assertEquals(3.41, actual, 0.01);
+    }
+    @Test
+    public void getPeakY() {
+        //given
+        Projectile projectile = new Projectile(31.00, 65.00);
+        projectile.setSeconds(2.70);
+
+        //when
+        double actual = projectile.getPeakY();
+
+        //then
+
+        Assertions.assertEquals(111.02, actual, 0.01);
     }
 }

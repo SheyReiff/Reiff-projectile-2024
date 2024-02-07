@@ -29,5 +29,8 @@ public class Projectile {
         return (velocity * Math.sin(radians))/ 9.8;
 
     }
+    public double getPeakY() {
+        return sin(radians) * (velocity * velocity) / (2 * 9.8); //ChatGPT
+    }
 }
 
