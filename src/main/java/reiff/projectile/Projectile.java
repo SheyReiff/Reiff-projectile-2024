@@ -12,9 +12,11 @@ public class Projectile {
         this.velocity = velocity;
         this.radians = Math.toRadians(angle);
     }
+
     public void setSeconds(double seconds) {
         this.seconds = seconds;
     }
+
     public double getX() {
         return cos(radians) * velocity * seconds;
     }
@@ -26,9 +28,9 @@ public class Projectile {
     //projectile at its highest
 
     public double getApex() {
-        return (velocity * Math.sin(radians))/ 9.8;
-
+        return (velocity * Math.sin(radians))/9.8;
     }
+
     public double getPeakY() {
         return sin(radians) * (velocity * velocity) / (2 * 9.8); //ChatGPT
     }

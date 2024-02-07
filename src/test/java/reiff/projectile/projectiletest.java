@@ -45,6 +45,7 @@ public class ProjectileTest {
 
         Assertions.assertEquals(3.41, actual, 0.01);
     }
+
     @Test
     public void getPeakY() {
         //given
