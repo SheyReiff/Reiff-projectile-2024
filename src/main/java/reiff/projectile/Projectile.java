@@ -32,7 +32,7 @@ public class Projectile {
     }
 
     public double getPeakY() {
-        return sin(radians) * (velocity * velocity) / (2 * 9.8); //ChatGPT
+        return (sin(radians) * (velocity)) * (sin(radians) * (velocity))  / (2 * 9.8); //ChatGPT
     }
 }
 
