@@ -4,8 +4,8 @@ import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 
 public class Projectile {
-    private double radians;
-    private double velocity;
+    private final double radians;
+    private final double velocity;
     private double seconds;
 
     public Projectile(double angle, double velocity) {
