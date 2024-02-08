@@ -21,7 +21,7 @@ public class ProjectileTest {
     @Test
     public void getY() {
         //given
-        Projectile projectile = new Projectile(31.00, 65.00);
+        Projectile projectile = new Projectile(31, 65);
         projectile.setSeconds(2.70);
 
         //when
@@ -35,7 +35,7 @@ public class ProjectileTest {
     @Test
     public void getApex() {
         //given
-        Projectile projectile = new Projectile(31.00, 65.00);
+        Projectile projectile = new Projectile(31, 65);
         projectile.setSeconds(2.70);
 
         //when
@@ -49,7 +49,7 @@ public class ProjectileTest {
     @Test
     public void getPeakY() {
         //given
-        Projectile projectile = new Projectile(31.00, 65.00);
+        Projectile projectile = new Projectile(31, 65);
         projectile.setSeconds(2.70);
 
         //when
