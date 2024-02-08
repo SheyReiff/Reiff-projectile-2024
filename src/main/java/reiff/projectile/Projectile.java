@@ -28,7 +28,7 @@ public class Projectile {
     //projectile at its highest
 
     public double getApex() {
-        return (velocity * Math.sin(radians))/9.8;
+        return (velocity * Math.sin(radians)) / 9.8;
     }
 
     public double getPeakY() {
