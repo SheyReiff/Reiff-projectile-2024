@@ -9,5 +9,6 @@ public class Main {
         System.out.println(projectile1.getX());
         System.out.println(projectile1.getY());
         System.out.println(projectile1.getPeakY());
+        System.out.println(projectile1.getXIntercept());
     }
 }

@@ -59,4 +59,18 @@ public class ProjectileTest {
 
         Assertions.assertEquals(57.18, actual, 0.01);
     }
+
+    @Test
+    public void getXIntercept() {
+        //given
+        Projectile projectile = new Projectile(31, 65);
+        projectile.setSeconds(2.70);
+
+        //when
+        double actual = projectile.getXIntercept();
+
+        //then
+
+        Assertions.assertEquals(380.65, actual, 0.01);
+    }
 }
