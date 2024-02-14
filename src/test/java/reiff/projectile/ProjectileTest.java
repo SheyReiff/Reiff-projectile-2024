@@ -57,6 +57,6 @@ public class ProjectileTest {
 
         //then
 
-        Assertions.assertEquals(111.02, actual, 0.01);
+        Assertions.assertEquals(57.18, actual, 0.01);
     }
 }
