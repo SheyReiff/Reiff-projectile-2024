@@ -35,7 +35,7 @@ public class Projectile {
         return (sin(radians) * (velocity)) * (sin(radians) * (velocity))  / (2 * 9.8); //ChatGPT
     }
 
-    public double getXIntercept() {
+    public double getInterceptX() {
         double timeToGround = (2 * velocity * Math.sin(radians)) / 9.8;
         return Math.cos(radians) * velocity * timeToGround;
     }

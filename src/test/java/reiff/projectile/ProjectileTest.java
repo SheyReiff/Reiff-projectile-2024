@@ -61,13 +61,13 @@ public class ProjectileTest {
     }
 
     @Test
-    public void getXIntercept() {
+    public void getInterceptX() {
         //given
         Projectile projectile = new Projectile(31, 65);
         projectile.setSeconds(2.70);
 
         //when
-        double actual = projectile.getXIntercept();
+        double actual = projectile.getInterceptX();
 
         //then
 
