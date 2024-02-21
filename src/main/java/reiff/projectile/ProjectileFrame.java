@@ -30,7 +30,7 @@ public class ProjectileFrame extends JFrame {
         final JLabel secondsLabel = new JLabel("Seconds");
         final JLabel xlabel = new JLabel(("x"));
         final JLabel ylabel = new JLabel(("y"));
-        final JLabel peakYLabel = new JLabel(("Peak Y"));
+        final JLabel peakyLabel = new JLabel(("Peak Y"));
         final JLabel xiLabel = new JLabel(("X Intercept"));
         nextToxLabel = new JLabel();
         nextToyLabel = new JLabel();
@@ -115,7 +115,7 @@ public class ProjectileFrame extends JFrame {
         add(ylabel);
         add(nextToyLabel);
 
-        add(peakYLabel);
+        add(peakyLabel);
         add(nextToPeakyLabel);
 
         add(xiLabel);
