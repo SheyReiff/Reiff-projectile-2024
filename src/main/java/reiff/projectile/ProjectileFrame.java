@@ -10,36 +10,37 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ProjectileFrame extends JFrame {
-    private JSlider angleSlider;
-    private JTextField velocityField;
-    private JTextField secondsField;
-    private JLabel nextToXLabel;
-    private JLabel nextToYLabel;
-    private JLabel nextToPeakYLabel;
-    private JLabel nextToXILabel;
+
+    private final JSlider angleSlider;
+    private final JTextField velocityField;
+    private final JTextField secondsField;
+    private final JLabel nextToxLabel;
+    private final JLabel nextToyLabel;
+    private final JLabel nextToPeakyLabel;
+    private final JLabel nextToxiLabel;
 
     public ProjectileFrame() {
         setSize(400, 600);
         setTitle("Projectile Calculator");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        setLayout(new GridLayout(6, 2));
+        setLayout(new GridLayout(9, 2));
         JLabel angleLabel = new JLabel("Angle");
         JLabel velocityLabel = new JLabel("Velocity");
         JLabel secondsLabel = new JLabel("Seconds");
-        JLabel xLabel = new JLabel(("X"));
-        JLabel yLabel = new JLabel(("Y"));
+        JLabel xLabel = new JLabel(("x"));
+        JLabel yLabel = new JLabel(("y"));
         JLabel peakYLabel = new JLabel(("Peak Y"));
-        JLabel XILabel = new JLabel(("X Intercept"));
-        JLabel nextToXLabel = new JLabel();
-        JLabel nextToYLabel = new JLabel();
-        JLabel nextToPeakYLabel = new JLabel();
-        JLabel nextToXILabel = new JLabel();
+        JLabel xiLabel = new JLabel(("X Intercept"));
+        nextToxLabel = new JLabel();
+        nextToyLabel = new JLabel();
+        nextToPeakyLabel = new JLabel();
+        nextToxiLabel = new JLabel();
         JLabel emptySpace = new JLabel();
         JButton calculateButton = new JButton("Calculate");
 
 
-        JSlider angleSlider = new JSlider(JSlider.HORIZONTAL, 0, 90, 0);
+        angleSlider = new JSlider(JSlider.HORIZONTAL, 0, 90, 0);
         angleSlider.setMajorTickSpacing(10);
         angleSlider.setMinorTickSpacing(1);
         angleSlider.setPaintTicks(true);
@@ -59,7 +60,7 @@ public class ProjectileFrame extends JFrame {
             }
         });
 
-        JTextField velocityField = new JTextField();
+        velocityField = new JTextField();
         velocityField.getDocument().addDocumentListener(new DocumentListener() {
 
             @Override
@@ -79,7 +80,7 @@ public class ProjectileFrame extends JFrame {
         });
 
 
-        JTextField secondsField = new JTextField();
+        secondsField = new JTextField();
         secondsField.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
@@ -97,8 +98,6 @@ public class ProjectileFrame extends JFrame {
             }
         });
 
-        setLayout(new GridLayout(0, 2));
-
         add(angleLabel);
         add(angleSlider);
         add(new JLabel());
@@ -111,16 +110,16 @@ public class ProjectileFrame extends JFrame {
         add(secondsField);
 
         add(xLabel);
-        add(nextToXLabel);
+        add(nextToxLabel);
 
         add(yLabel);
-        add(nextToYLabel);
+        add(nextToyLabel);
 
         add(peakYLabel);
-        add(nextToPeakYLabel);
+        add(nextToPeakyLabel);
 
-        add(XILabel);
-        add(nextToXILabel);
+        add(xiLabel);
+        add(nextToxiLabel);
 
         add(emptySpace);
         add(calculateButton);
@@ -133,22 +132,26 @@ public class ProjectileFrame extends JFrame {
             }
         });
 
-        recalculateValues();
+        //recalculateValues();
     }
 
     private void recalculateValues() {
-        Projectile projectile = new Projectile(
-                angleSlider.getValue(),
-                Double.parseDouble(velocityField.getText())
-        );
-        projectile.setSeconds(Double.parseDouble(secondsField.getText())
-        );
-        nextToXLabel.setText(String.valueOf(projectile.getX()));
-        nextToYLabel.setText(String.valueOf(projectile.getY()));
-        nextToPeakYLabel.setText(String.valueOf(projectile.getPeakY()));
-        nextToXILabel.setText(String.valueOf(projectile.getInterceptX()));
-    }
+        try {
+            Projectile projectile = new Projectile(
 
+                    (double) angleSlider.getValue(),
+                    Double.parseDouble(velocityField.getText())
+            );
+            projectile.setSeconds(Double.parseDouble(secondsField.getText())
+            );
+            nextToxLabel.setText(String.valueOf(projectile.getX()));
+            nextToyLabel.setText(String.valueOf(projectile.getY()));
+            nextToPeakyLabel.setText(String.valueOf(projectile.getPeakY()));
+            nextToxiLabel.setText(String.valueOf(projectile.getInterceptX()));
+        } catch (NumberFormatException e) {
+            // ignore
+        }
+    }
 }
 
 
