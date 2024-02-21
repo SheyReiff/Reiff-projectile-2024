@@ -25,19 +25,19 @@ public class ProjectileFrame extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         setLayout(new GridLayout(9, 2));
-        JLabel angleLabel = new JLabel("Angle");
-        JLabel velocityLabel = new JLabel("Velocity");
-        JLabel secondsLabel = new JLabel("Seconds");
-        JLabel xLabel = new JLabel(("x"));
-        JLabel yLabel = new JLabel(("y"));
-        JLabel peakYLabel = new JLabel(("Peak Y"));
-        JLabel xiLabel = new JLabel(("X Intercept"));
+        final JLabel angleLabel = new JLabel("Angle");
+        final JLabel velocityLabel = new JLabel("Velocity");
+        final JLabel secondsLabel = new JLabel("Seconds");
+        final JLabel xlabel = new JLabel(("x"));
+        final JLabel ylabel = new JLabel(("y"));
+        final JLabel peakYLabel = new JLabel(("Peak Y"));
+        final JLabel xiLabel = new JLabel(("X Intercept"));
         nextToxLabel = new JLabel();
         nextToyLabel = new JLabel();
         nextToPeakyLabel = new JLabel();
         nextToxiLabel = new JLabel();
-        JLabel emptySpace = new JLabel();
-        JButton calculateButton = new JButton("Calculate");
+        final JLabel emptySpace = new JLabel();
+        final JButton calculateButton = new JButton("Calculate");
 
 
         angleSlider = new JSlider(JSlider.HORIZONTAL, 0, 90, 0);
@@ -109,10 +109,10 @@ public class ProjectileFrame extends JFrame {
         add(secondsLabel);
         add(secondsField);
 
-        add(xLabel);
+        add(xlabel);
         add(nextToxLabel);
 
-        add(yLabel);
+        add(ylabel);
         add(nextToyLabel);
 
         add(peakYLabel);
