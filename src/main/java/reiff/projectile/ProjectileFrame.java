@@ -1,13 +1,10 @@
 package reiff.projectile;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 public class ProjectileFrame extends JFrame {
 
@@ -19,12 +16,21 @@ public class ProjectileFrame extends JFrame {
     private final JLabel nextToPeakyLabel;
     private final JLabel nextToxiLabel;
 
+    private final ProjectileGraph graph;
+
     public ProjectileFrame() {
-        setSize(400, 600);
+        setSize(1000, 1000);
         setTitle("Projectile Calculator");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        setLayout(new GridLayout(9, 2));
+        JPanel main = new JPanel();
+        main.setLayout(new BorderLayout());
+        setContentPane(main);
+
+        JPanel west = new JPanel();
+        main.add(west, BorderLayout.WEST);
+
+        west.setLayout(new GridLayout(9, 2));
         final JLabel angleLabel = new JLabel("Angle");
         final JLabel velocityLabel = new JLabel("Velocity");
         final JLabel secondsLabel = new JLabel("Seconds");
@@ -49,14 +55,12 @@ public class ProjectileFrame extends JFrame {
 
         JLabel angleValueLabel = new JLabel("0");
 
-        angleSlider.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                JSlider source = (JSlider) e.getSource();
-                if (!source.getValueIsAdjusting()) {
-                    int angleValue = source.getValue();
-                    angleValueLabel.setText(String.valueOf(angleValue));
-                    recalculateValues();
-                }
+        angleSlider.addChangeListener(e -> {
+            JSlider source = (JSlider) e.getSource();
+            if (!source.getValueIsAdjusting()) {
+                int angleValue = source.getValue();
+                angleValueLabel.setText(String.valueOf(angleValue));
+                recalculateValues();
             }
         });
 
@@ -98,48 +102,44 @@ public class ProjectileFrame extends JFrame {
             }
         });
 
-        add(angleLabel);
-        add(angleSlider);
-        add(new JLabel());
-        add(angleValueLabel);
+        west.add(angleLabel);
+        west.add(angleSlider);
+        west.add(new JLabel());
+        west.add(angleValueLabel);
 
-        add(velocityLabel);
-        add(velocityField);
+        west.add(velocityLabel);
+        west.add(velocityField);
 
-        add(secondsLabel);
-        add(secondsField);
+        west.add(secondsLabel);
+        west.add(secondsField);
 
-        add(xlabel);
-        add(nextToxLabel);
+        west.add(xlabel);
+        west.add(nextToxLabel);
 
-        add(ylabel);
-        add(nextToyLabel);
+        west.add(ylabel);
+        west.add(nextToyLabel);
 
-        add(peakyLabel);
-        add(nextToPeakyLabel);
+        west.add(peakyLabel);
+        west.add(nextToPeakyLabel);
 
-        add(xiLabel);
-        add(nextToxiLabel);
+        west.add(xiLabel);
+        west.add(nextToxiLabel);
 
-        add(emptySpace);
-        add(calculateButton);
+        west.add(emptySpace);
+        west.add(calculateButton);
 
 
-        calculateButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                recalculateValues();
-            }
-        });
+        calculateButton.addActionListener(e -> recalculateValues());
 
-        //recalculateValues();
+       graph = new ProjectileGraph();
+        main.add(graph, BorderLayout.CENTER);
     }
 
     private void recalculateValues() {
         try {
             Projectile projectile = new Projectile(
 
-                    (double) angleSlider.getValue(),
+                    angleSlider.getValue(),
                     Double.parseDouble(velocityField.getText())
             );
             projectile.setSeconds(Double.parseDouble(secondsField.getText())
@@ -148,6 +148,8 @@ public class ProjectileFrame extends JFrame {
             nextToyLabel.setText(String.valueOf(projectile.getY()));
             nextToPeakyLabel.setText(String.valueOf(projectile.getPeakY()));
             nextToxiLabel.setText(String.valueOf(projectile.getInterceptX()));
+            graph.setProjectile(projectile);
+
         } catch (NumberFormatException e) {
             // ignore
         }

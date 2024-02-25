@@ -39,5 +39,17 @@ public class Projectile {
         double timeToGround = (2 * velocity * Math.sin(radians)) / 9.8;
         return Math.cos(radians) * velocity * timeToGround;
     }
+
+    public double getTotalTime() {
+        return (2 * velocity * Math.sin(radians)) / 9.8;
+    }
+
+    public double getX(double time){
+        return velocity * Math.cos(radians) * time;
+    }
+
+    public double getY(double time) {
+        return velocity * Math.sin(radians) * time - 0.5 * 9.8 * time * time;
+    }
 }
 
