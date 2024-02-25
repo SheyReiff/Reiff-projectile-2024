@@ -47,7 +47,7 @@ public class Projectile {
     }
 
     public double getTotalTime() {
-        return (2 * velocity * Math.sin(radians)) / 9.8;
+        return getApex() *2;
     }
 }
 

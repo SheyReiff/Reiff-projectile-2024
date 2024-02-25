@@ -16,11 +16,10 @@ public class ProjectileGraph extends JComponent {
 
         double interval = 0.1;
 
-        double time = 0;
         double prevX = 0;
         double prevY = 0;
 
-        while (time <= projectile.getTotalTime()) {
+        for (double time = 0; time <= projectile.getTotalTime(); time += interval) {
             double x = projectile.getX(time);
             double y = projectile.getY(time);
 
@@ -28,15 +27,13 @@ public class ProjectileGraph extends JComponent {
 
             prevX = x;
             prevY = y;
-
-            time += interval;
         }
+
 
         g.setColor(Color.BLUE);
         double x = projectile.getX(projectile.getTotalTime() / 2);
         double y = projectile.getPeakY();
-        g.fillOval((int) x, -(int) y, 10, 10);
-
+        g.fillOval((int) x - 5, -(int) y - 5, 10, 10);
 
         double intX = projectile.getX(projectile.getTotalTime() / 2);
         double peakY = projectile.getPeakY();
