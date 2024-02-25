@@ -21,11 +21,17 @@ public class Projectile {
         return cos(radians) * velocity * seconds;
     }
 
+    public double getX(double time) {
+        return velocity * Math.cos(radians) * time;
+    }
+
     public double getY() {
         return sin(radians) * velocity * seconds - ((0.5) * 9.8 * (seconds * seconds));
     }
 
-    //projectile at its highest
+    public double getY(double time) {
+        return velocity * Math.sin(radians) * time - 0.5 * 9.8 * time * time;
+    }
 
     public double getApex() {
         return (velocity * Math.sin(radians)) / 9.8;
@@ -38,6 +44,10 @@ public class Projectile {
     public double getInterceptX() {
         double timeToGround = (2 * velocity * Math.sin(radians)) / 9.8;
         return Math.cos(radians) * velocity * timeToGround;
+    }
+
+    public double getTotalTime() {
+        return getApex() * 2;
     }
 }
 

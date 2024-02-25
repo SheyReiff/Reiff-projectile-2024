@@ -73,4 +73,19 @@ public class ProjectileTest {
 
         Assertions.assertEquals(380.65, actual, 0.01);
     }
+
+    @Test
+    public void getTotalTime() {
+        //given
+        Projectile projectile = new Projectile(31, 65);
+        projectile.setSeconds(2.70);
+
+        //when
+        double actual = projectile.getTotalTime();
+
+        //then
+
+        Assertions.assertEquals(6.83, actual, 0.01);
+
+    }
 }
