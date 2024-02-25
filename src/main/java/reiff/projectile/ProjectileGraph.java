@@ -41,7 +41,8 @@ public class ProjectileGraph extends JComponent {
         double intX = projectile.getX(projectile.getTotalTime() / 2);
         double peakY = projectile.getPeakY();
 
-        g.drawString("(" + String.format("%.2f", intX) + ", " + String.format("%.2f", peakY) + ")", (int) intX, (int) -peakY);
+        g.drawString("(" + String.format("%.2f", intX) + ", " + String.format("%.2f", peakY) + ")",
+                (int) intX, (int) -peakY);
 
     }
 
