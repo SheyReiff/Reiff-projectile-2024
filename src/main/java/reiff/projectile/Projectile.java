@@ -47,7 +47,7 @@ public class Projectile {
     }
 
     public double getTotalTime() {
-        return getApex() *2;
+        return getApex() * 2;
     }
 }
 
