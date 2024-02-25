@@ -75,7 +75,7 @@ public class ProjectileTest {
     }
 
     @Test
-    public void getTotalTime(){
+    public void getTotalTime() {
         //given
         Projectile projectile = new Projectile(31, 65);
         projectile.setSeconds(2.70);

@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class ProjectileGraph extends JComponent {
 
-    Projectile projectile= new Projectile(0,0);
+    Projectile projectile = new Projectile(0, 0);
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -35,16 +35,17 @@ public class ProjectileGraph extends JComponent {
         g.setColor(Color.BLUE);
         double x = projectile.getX(projectile.getTotalTime() / 2);
         double y = projectile.getPeakY();
-        g.fillOval((int)x, -(int)y, 10, 10);
+        g.fillOval((int) x, -(int) y, 10, 10);
 
 
-        double interceptX = projectile.getX(projectile.getTotalTime() / 2);
+        double intX = projectile.getX(projectile.getTotalTime() / 2);
         double peakY = projectile.getPeakY();
 
-        g.drawString("(" + String.format("%.2f", interceptX) + ", " + String.format("%.2f", peakY) + ")", (int) interceptX, (int) -peakY);
+        g.drawString("(" + String.format("%.2f", intX) + ", " + String.format("%.2f", peakY) + ")", (int) intX, (int) -peakY);
 
     }
-    public void setProjectile(Projectile projectile){
+
+    public void setProjectile(Projectile projectile) {
         this.projectile = projectile;
         repaint();
     }
