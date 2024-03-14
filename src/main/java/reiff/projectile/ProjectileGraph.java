@@ -14,12 +14,12 @@ public class ProjectileGraph extends JComponent {
         g.setColor(Color.white);
         g.fillRect(0, 0, getWidth(), getHeight());
 
-        g.translate(30, getHeight()-30);
+        g.translate(30, getHeight() - 30);
 
         g.setColor(Color.LIGHT_GRAY);
         int spacing = 30;
-        int maxX = getWidth() ;
-        int maxY = getHeight() ;
+        int maxX = getWidth();
+        int maxY = getHeight();
 
         for (int y = 0; y < maxY; y += spacing) {
             g.drawLine(-30, -y, maxX, -y);
@@ -30,7 +30,7 @@ public class ProjectileGraph extends JComponent {
         }
 
         g.setColor(Color.BLACK);
-        g.drawLine(-30,0,getWidth(),0);
+        g.drawLine(-30, 0, getWidth(), 0);
         g.drawLine(0, 30, 0, -getHeight());
 
         double interval = 0.1;
@@ -61,11 +61,11 @@ public class ProjectileGraph extends JComponent {
                 (int) intX, (int) -peakY);
 
         g.setColor(Color.RED);
-        double xSeconds = projectile.getX();
-        double ySeconds = projectile.getY();
-        g.fillOval((int) xSeconds- 5, -(int) ySeconds - 5, 10, 10);
-        g.drawString("(" + String.format("%.2f", xSeconds) + ", " + String.format("%.2f", ySeconds) + ")",
-                (int) xSeconds, (int) -ySeconds);
+        double xaSeconds = projectile.getX();
+        double yaSeconds = projectile.getY();
+        g.fillOval((int) xaSeconds - 5, -(int) yaSeconds - 5, 10, 10);
+        g.drawString("(" + String.format("%.2f", xaSeconds) + ", " + String.format("%.2f", yaSeconds) + ")",
+                (int) xaSeconds, (int) -yaSeconds);
 
     }
 
